@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rise Media Group — Social Media & Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy2: #1B3A6B;
+    --orange: #E8521A;
+    --orange2: #FF6B35;
+    --light: #F4F6FA;
+    --mid: #8A9BB0;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; background: rgba(13,27,42,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(8px); }
+  .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 2px; color: var(--white); }
+  .nav-logo span { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; padding: 8px 20px; border-radius: 4px; text-decoration: none; transition: background .2s; }
+  .nav-cta:hover { background: var(--orange2); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 6rem 2.5rem 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,82,26,0.12) 0%, transparent 70%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(232,82,26,0.4), transparent); }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 3px; color: var(--orange); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+  .hero-tag::before { content: ''; width: 30px; height: 2px; background: var(--orange); }
+  h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(52px, 9vw, 96px); font-weight: 800; line-height: .95; letter-spacing: -1px; text-transform: uppercase; margin-bottom: 1.5rem; }
+  h1 span { color: var(--orange); }
+  .hero-sub { font-size: 18px; font-weight: 300; color: var(--mid); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { background: var(--orange); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; padding: 14px 32px; border-radius: 4px; text-decoration: none; transition: background .2s, transform .2s; }
+  .btn-primary:hover { background: var(--orange2); transform: translateY(-2px); }
+  .btn-secondary { border: 1px solid rgba(255,255,255,0.2); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 1.5px; padding: 14px 32px; border-radius: 4px; text-decoration: none; transition: border-color .2s, transform .2s; }
+  .btn-secondary:hover { border-color: var(--orange); transform: translateY(-2px); }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+  .stat { }
+  .stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 800; color: var(--orange); }
+  .stat-label { font-size: 13px; color: var(--mid); margin-top: 2px; }
+
+  /* SERVICES */
+  .services { padding: 6rem 2.5rem; background: var(--light); color: var(--navy); }
+  .section-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--orange); text-transform: uppercase; margin-bottom: .75rem; }
+  h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; text-transform: uppercase; line-height: 1; margin-bottom: 3rem; color: var(--navy); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+  .service-card { background: var(--white); border-radius: 8px; padding: 1.75rem; border-top: 3px solid transparent; transition: border-color .2s, transform .2s, box-shadow .2s; }
+  .service-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(13,27,42,0.12); }
+  .service-card.featured { border-color: var(--orange); background: var(--navy); color: var(--white); }
+  .service-icon { font-size: 28px; margin-bottom: 1rem; }
+  .service-name { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: .5px; margin-bottom: .5rem; color: var(--navy); }
+  .service-card.featured .service-name { color: var(--white); }
+  .service-price { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--orange); margin-bottom: .75rem; }
+  .service-desc { font-size: 14px; color: #556; line-height: 1.6; }
+  .service-card.featured .service-desc { color: var(--mid); }
+  .featured-badge { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; background: var(--orange); color: var(--white); padding: 3px 10px; border-radius: 2px; margin-bottom: 1rem; }
+
+  /* WHY */
+  .why { padding: 6rem 2.5rem; background: var(--navy); }
+  .why-inner { max-width: 900px; margin: 0 auto; }
+  .why h2 { color: var(--white); margin-bottom: .5rem; }
+  .why-sub { font-size: 16px; color: var(--mid); margin-bottom: 3rem; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+  .why-item { padding: 1.5rem; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; transition: border-color .2s; }
+  .why-item:hover { border-color: rgba(232,82,26,0.4); }
+  .why-num { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 800; color: var(--orange); opacity: .3; line-height: 1; margin-bottom: .5rem; }
+  .why-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: .5px; margin-bottom: .4rem; }
+  .why-text { font-size: 13px; color: var(--mid); line-height: 1.6; }
+
+  /* CONTACT */
+  .contact { padding: 6rem 2.5rem; background: var(--orange); }
+  .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .contact h2 { color: var(--white); margin-bottom: .75rem; }
+  .contact-sub { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; }
+  .contact-details { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .contact-item { text-align: center; }
+  .contact-label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.7); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .contact-value { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: var(--white); }
+  .contact-btn { display: inline-block; background: var(--white); color: var(--orange); font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 1.5px; padding: 14px 36px; border-radius: 4px; text-decoration: none; transition: transform .2s; }
+  .contact-btn:hover { transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: var(--navy); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 8px; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; letter-spacing: 2px; }
+  .footer-logo span { color: var(--orange); }
+  footer p { font-size: 12px; color: var(--mid); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-tag, h1, .hero-sub, .hero-btns, .hero-stats { animation: fadeUp .7s ease both; }
+  .hero-tag { animation-delay: .1s; }
+  h1 { animation-delay: .2s; }
+  .hero-sub { animation-delay: .3s; }
+  .hero-btns { animation-delay: .4s; }
+  .hero-stats { animation-delay: .5s; }
+
+  @media(max-width:600px) {
+    nav { padding: 1rem 1.25rem; }
+    .hero, .services, .why, .contact { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .hero-stats { gap: 1.5rem; }
+    .contact-details { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">RISE<span>.</span>MEDIA</div>
+  <a href="#contact" class="nav-cta">GET STARTED</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Sullivan, Missouri & surrounding areas</div>
+    <h1>Your Business.<br><span>Elevated.</span></h1>
+    <p class="hero-sub">Rise Media Group helps local businesses grow their online presence, attract more customers, and turn social media into real revenue.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">GET A FREE CONSULTATION</a>
+      <a href="#services" class="btn-secondary">VIEW SERVICES</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Local & personal service</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Long-term contracts</div></div>
+      <div class="stat"><div class="stat-num">1:1</div><div class="stat-label">Direct access to your strategist</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-tag">What we offer</div>
+    <h2>Services built for<br>local businesses</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-name">Basic Management</div>
+        <div class="service-price">$200/mo</div>
+        <div class="service-desc">1 platform · 3 posts/week · Captions, hashtags & monthly report</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <div class="service-name">Standard Management</div>
+        <div class="service-price">$325/mo</div>
+        <div class="service-desc">2 platforms · 4 posts/week · Captions, hashtags & bi-weekly reports</div>
+      </div>
+      <div class="service-card featured">
+        <div class="featured-badge">MOST POPULAR</div>
+        <div class="service-icon">🚀</div>
+        <div class="service-name">Pro Management</div>
+        <div class="service-price">$450/mo</div>
+        <div class="service-desc">3 platforms · 5 posts/week · Full engagement monitoring & weekly analytics</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📸</div>
+        <div class="service-name">Content Creation</div>
+        <div class="service-price">$350/mo</div>
+        <div class="service-desc">On-site shoots 1-2x/month · Professional photos & videos · Ready to post</div>
+      </div>
+      <div class="service-card featured">
+        <div class="featured-badge">BEST VALUE</div>
+        <div class="service-icon">⭐</div>
+        <div class="service-name">Full Service Package</div>
+        <div class="service-price">$600/mo</div>
+        <div class="service-desc">Management + Content Creation combined · Completely hands-off for you</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <div class="service-name">Paid Advertising</div>
+        <div class="service-price">$150/mo + ad spend</div>
+        <div class="service-desc">Facebook & Instagram ads · Creative design included · You control the budget</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="section-tag">Why Rise Media Group</div>
+    <h2>The local<br>advantage</h2>
+    <p class="why-sub">We're not a big faceless agency. We're right here in your community.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-title">Truly Local</div>
+        <div class="why-text">We understand Sullivan and the surrounding community because we live here too.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-title">Personal Service</div>
+        <div class="why-text">You work directly with Joshua — no account managers, no runaround.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-title">Results Focused</div>
+        <div class="why-text">Every post and campaign is built to drive real customers through your door.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-title">No Contracts</div>
+        <div class="why-text">Month-to-month only. We keep your business because we earn it every month.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-tag" style="color:rgba(255,255,255,0.7)">Let's talk</div>
+    <h2 style="color:var(--white)">Ready to grow<br>your business?</h2>
+    <p class="contact-sub">Reach out today for a free consultation. No pressure, no commitment — just an honest conversation about how we can help.</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">(636) 675-2567</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">Josh.risemedia@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Sullivan, MO</div>
+      </div>
+    </div>
+    <a href="mailto:Josh.risemedia@gmail.com" class="contact-btn">SEND A MESSAGE</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">RISE<span>.</span>MEDIA GROUP</div>
+  <p>© 2026 Rise Media Group · Sullivan, Missouri · Josh.risemedia@gmail.com</p>
+</footer>
+
+</body>
+</html>
